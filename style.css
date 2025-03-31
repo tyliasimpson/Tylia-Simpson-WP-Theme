@@ -13,8 +13,10 @@
   Use it to make something cool, have fun, and share what you've learned with others.
   */
 
-  /* COLOR PALETTE */
-  :root {
+  /* START STEP 2.2 */
+
+/* COLOR PALETTE */
+:root {
     --main-bg-color: rgb(255, 255, 255);
     --main-fg-color: rgb(1, 35, 70);
     --titles-color: #1c0263;
@@ -85,4 +87,6 @@ html {font-size: 100%;}
 
 .alignleft {text-align: left;}
 
-.aligncenter {text-align: center;}        
+.aligncenter {text-align: center;}  
+
+/* END STEP 2.2 */      

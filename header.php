@@ -1,65 +1,94 @@
-<?php
+<?php  // START STEP 2.3
     // Add this to all your php files for added security
 
     if (!defined('ABSPATH'))
         exit; 
         // Exit if accessed directly. 
         // Ex: Not being called up directly by index.php or some other theme PHP file
-    ?>
+    ?><!--  START WORDPRESS GET_HEADER CONTENT IN INDEX.PHP -->
+    <?php get_header(); ?>
+    <?php // this function loads the header.php file ?>
 
-    <!DOCTYPE html <?php language_attributes(); ?> >
+
+    <!--  END WORDPRESS GET_HEADER CONTENT IN INDEX.PHP -->
+    <!-- STEP 2.3 ENDS HERE -->
+
+
+
+    <?php  // START STEP 2.4
+    // Add this to all your php files for added security
+    if (!defined('ABSPATH'))
+        exit; 
+        // Exit if accessed directly. 
+        // Ex: Not being called up directly by index.php or some other theme PHP file
+    ?>
+    
+    <!-- START STEP 2.4 ADD HEADER.PHP CODE -->
+    <!DOCTYPE html>
     <html>
 
     <head>
-        <meta charset="<?php bloginfo( 'charset' ); ?>" />
+        <meta charset="utf-8">
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <?php // the viewport metatag is what makes a design responsive ?>
         
-
-        <?php // GET DYNAMIC HEADER CONTENT ?>
-            <?php wp_head(); ?>
-        <?php // END GET DYNAMIC HEADER CONTENT ?>
-
-       <!--  <title></title> the functions.php  creates a title-->
+        <title></title>
     </head>
 
-    <body <?php body_class(); ?>>
-    <?php wp_body_open(); ?>
+    <body>
 
     <header>
-        
-        <?php 
-        // Enables Wordpress custom logo
-        // See: https://developer.wordpress.org/reference%2Ffunctions%2Fadd_theme_support%2F/#custom-logo
-        
-            if ( function_exists( 'the_custom_logo' ) ) {
-            the_custom_logo();
-            }
-        ?>
-
         <nav>
-            <?php
-            wp_nav_menu(array(
-                'menu_class'	  	=> 'primary-menu',
-                'theme_location' 	=> 'header-menu',
-                'menu_id'	    	=> 'menu',
-                'container'         => 'div',
-            ));
-        ?>
-
-            <?php get_search_form(); ?>
         </nav>
-
-        <div class="branding">
-            <a href="<?php echo esc_url(home_url()); ?>">
-             <?php bloginfo('name'); ?>
-            </a>
-         </div>
-    
-        <div class="description">
-            <?php bloginfo('description'); ?>
-            <?php // This is the WP site tagline, not the meta description tag ?>
-        </div>
-
     </header>
+    <!-- END STEP 2.4 ADD HEADER.PHP CODE -->
+    <?php  // END OF STEP 2.4 ?>
+
+
+
+    <?php 
+    // START STEP 2.5 BUILD FOOTER
+    // Add this to all your php files for added security
+
+        if (!defined('ABSPATH'))
+          exit; 
+             // Exit if accessed directly. 
+             // Ex: Not being called up directly by index.php or some other theme PHP file
+         ?>
+
+      <footer>
+    
+      </footer>
+
+
+    </body>
+    </html><?php // END STEP 2.5 BUILD FOOTER ?>
+
+
+
+
+    <?php
+ // Add this to all your php files for added security
+
+ if (!defined('ABSPATH'))
+     exit; 
+     // Exit if accessed directly. 
+     // Ex: Not being called up directly by index.php or some other theme PHP file
+ 
+ // FOR COLLEGE NETWORK SECURITY
+ // FORCE AUTO-UPDATE EVERYTHING (WP CORE, PLUGINS AND THEMES)
+ add_filter( 'allow_minor_auto_core_updates', '__return_true' );         // ENABLE MINOR UPDATES
+ add_filter( 'allow_major_auto_core_updates', '__return_true' );         // ENABLE MAJOR UPDATES
+ add_filter( 'auto_update_plugin', '__return_true' );                    // UPDATE PLUGINS
+ add_filter( 'auto_update_theme', '__return_true' );                     // UPDATE THEMES 
+
+ /*
+ * Proper way to enqueue scripts and styles.
+ */
+ function tyliasimpson_theme_scripts() {
+     wp_enqueue_style( 'tyliasimpson', get_stylesheet_uri() );
+ }
+ add_action( 'wp_enqueue_scripts', 'tyliasimpson_theme_scripts' );
+
+ // END STEP 2.9
