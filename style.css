@@ -1,19 +1,22 @@
   /*
-  Theme Name: tylia-simpson
+  Theme Name: Tylia-Simpson
   Author: Tylia Simpson
-  Author URI: https://www.graphicandwebdesign.ca
+  Author URI: https://tylia-simpson.graphicandwebdesign.ca/
   Description: Student learning theme
   Version: 1.0
   License: GNU General Public License v2 or later
-  License URI: http://www.gnu.org/licenses/gpl-2.0.html
-  Tags: WP 101 
+  License URI: http://www.gnu.org/licenses/gpl-2.0.html 
+  Tested up to: 6.7
+  Requires PHP: 7
   Text Domain: tylia-simpson
 
   This theme, like WordPress, is licensed under the GPL.
   Use it to make something cool, have fun, and share what you've learned with others.
   */
 
-  /* START STEP 2.2 */
+  /* END STEP 2.1 */
+
+/* START STEP 2.2 */
 
 /* COLOR PALETTE */
 :root {

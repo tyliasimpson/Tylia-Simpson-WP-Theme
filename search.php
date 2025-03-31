@@ -1,98 +1,41 @@
-<?php  // START STEP 2.3
-    // Add this to all your php files for added security
-
-    if (!defined('ABSPATH'))
-        exit; 
-        // Exit if accessed directly. 
-        // Ex: Not being called up directly by index.php or some other theme PHP file
-    ?><!--  START WORDPRESS GET_HEADER CONTENT IN INDEX.PHP -->
-    <?php get_header(); ?>
-    <?php // this function loads the header.php file ?>
-
-
-    <!--  END WORDPRESS GET_HEADER CONTENT IN INDEX.PHP -->
-    <!-- STEP 2.3 ENDS HERE -->
-
-
-
-
-    <?php  // START STEP 2.4
-    // Add this to all your php files for added security
-    if (!defined('ABSPATH'))
-        exit; 
-        // Exit if accessed directly. 
-        // Ex: Not being called up directly by index.php or some other theme PHP file
-    ?>
-    
-    <!-- START STEP 2.4 ADD HEADER.PHP CODE -->
-    <!DOCTYPE html>
-    <html>
-
-    <head>
-        <meta charset="utf-8">
-
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <?php // the viewport metatag is what makes a design responsive ?>
-        
-        <title></title>
-    </head>
-
-    <body>
-
-    <header>
-        <nav>
-        </nav>
-    </header>
-    <!-- END STEP 2.4 ADD HEADER.PHP CODE -->
-    <?php  // END OF STEP 2.4 ?>
-
-
-
-
-
-    <?php 
-    // START STEP 2.5 BUILD FOOTER
-    // Add this to all your php files for added security
-
+<?php // START STEP 2.19 CREATE SEARCH RESULTS PAGE
+        // Add this to all your php files for added security
         if (!defined('ABSPATH'))
-          exit; 
-             // Exit if accessed directly. 
-             // Ex: Not being called up directly by index.php or some other theme PHP file
-         ?>
+            exit;
+        get_header(); ?>
+        <!-- START STEP CREATE SEARCH RESULTS PAGE -->
+        <div class="flex-container">
+        <main id="post-<?php the_ID(); ?>" <?php post_class(); ?>>    
+        <?php
+        $s=get_search_query();
+        $args = array(
+                        's' =>$s
+                    );
 
-      <footer>
-    
-      </footer>
+                    // The Query
+        $the_query = new WP_Query( $args );
+        if ( $the_query->have_posts() ) {
+                _e("<h1>Search Results for: ".get_query_var('s')."</h1>");
+                while ( $the_query->have_posts() ) {
+                $the_query->the_post();
+                        ?>
+                            <li>
+                                <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                            </li>
+                        <?php
+                }
+            }else{
+        ?>
+                <h1>No Results Found For These Search Terms</h1>
+                <div class="alert alert-info">
+                <p>Sorry, but nothing matched your search criteria. Please try again with some different keywords.</p>
+                </div>
+        <?php } ?>
+        </main>
 
+        <?php get_sidebar(); ?>
+        </div>
 
-    </body>
-    </html><?php // END STEP 2.5 BUILD FOOTER ?>
+        <?php get_footer(); ?>
 
-
-
-
-
-    <?php
- // Add this to all your php files for added security
-
- if (!defined('ABSPATH'))
-     exit; 
-     // Exit if accessed directly. 
-     // Ex: Not being called up directly by index.php or some other theme PHP file
- 
- // FOR COLLEGE NETWORK SECURITY
- // FORCE AUTO-UPDATE EVERYTHING (WP CORE, PLUGINS AND THEMES)
- add_filter( 'allow_minor_auto_core_updates', '__return_true' );         // ENABLE MINOR UPDATES
- add_filter( 'allow_major_auto_core_updates', '__return_true' );         // ENABLE MAJOR UPDATES
- add_filter( 'auto_update_plugin', '__return_true' );                    // UPDATE PLUGINS
- add_filter( 'auto_update_theme', '__return_true' );                     // UPDATE THEMES 
-
- /*
- * Proper way to enqueue scripts and styles.
- */
- function tyliasimpson_theme_scripts() {
-     wp_enqueue_style( 'tyliasimpson', get_stylesheet_uri() );
- }
- add_action( 'wp_enqueue_scripts', 'tyliasimpson_theme_scripts' );
-
- // END STEP 2.9
+        <!-- END STEP 2.19 CREATE SEARCH RESULTS PAGE -->
