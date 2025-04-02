@@ -16,30 +16,52 @@
 
   /* END STEP 2.1 */
 
+
+
+
+
+  
 /* START STEP 2.2 */
+
+
+
+
+/* GLOBAL STYLES ---------------------------------------------------------------------------------*/
+
 
 /* COLOR PALETTE */
 :root {
-    --main-bg-color: rgb(255, 255, 255);
-    --main-fg-color: rgb(1, 35, 70);
-    --titles-color: #1c0263;
+    --main-bg-color: #F7F8F3;
+    --main-fg-color: #A3BAC5;
+    --titles-color: #185879;
     --bodytext-color: #444444;
-    --accent-color: rgb(63, 77, 159);
-    --highlight-color: #f3c;
-    --default-font: "helvetica neue", helvetica, arial, sans-serif;
+    --accent-color: #185879;
+    --highlight-color: #A3BAC5;
+    
+    /* Font Variables */
+    --titles-font: 'Lora', serif;
+    --body-font: 'Nunito Sans', sans-serif;
 }
+
 
 body {
     background-color: var(--main-bg-color);
+    font-family: var(--body-font); /* Apply body font globally */
+    margin: 0;
+    padding: 0;
 }
 
-h1.h2,h3,h4,h5,h6,legend,label {
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--titles-font); /* Apply title font */
     color: var(--titles-color);
+    font-weight: 300;
 }
 
-p,li {
+p, li {
     color: var(--bodytext-color);
 }
+
+/* LINKS */
 
 a:link {
     color: var(--accent-color);
@@ -59,37 +81,397 @@ a:active {
     color: var(--highlight-color);
 }
 
-html {font-size: 100%;}    
+/* TYPOGRAHPIC SCALE */
 
-/* required wordpress classes */
-.wp-caption {
-    font-family: var(--default-font);
+h1 { font-size: 2em; }
+h2 { font-size: 1.7818em; }
+h3 { font-size: 1.5874em; }
+h4 { font-size: 1.4142em; }
+h5 { font-size: 1.2599em; }
+h6 { font-size: 1.1225em; }
+p { font-size: 1em; }
+small { font-size: .8909em; }
+
+
+/*--------------------------------------------------------------------------------------*/
+
+
+
+
+
+
+
+
+
+
+/* HEADER ---------------------------------------------------------------------------------*/
+header {
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    border-bottom: 1px solid #ddd;
 }
 
-.wp-caption-text {
-     font-family: var(--default-font);
+.branding {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 20px;
 }
 
-.screen-reader-text  {
-     font-family: var(--default-font);
+header img {
+    width: 100px;
+    max-width: 100%;
+    margin-right: 15px;
 }
 
-.sticky {
-     font-family: var(--default-font);
+#logo {
+    width: 100px;
+    max-width: 100%;
+    margin-right: 15px;
 }
 
-.gallery-caption {
-     font-family: var(--default-font);
-} 
+.companyinfo .brand {
+    font-size: 1.8em;
+    font-weight: bold;
+}
 
-.bypostauthor {
-     font-family: var(--default-font);
-} 
+.companyinfo .tagline {
+    font-size: 1.2em;
+    color: var(--bodytext-color);
+}
 
-.alignright {text-align: right;}
+/*--------------------------------------------------------------------------------------*/
 
-.alignleft {text-align: left;}
 
-.aligncenter {text-align: center;}  
 
-/* END STEP 2.2 */      
+
+
+
+
+/* SEARCH FORM ---------------------------------------------------------------------------*/
+.search form {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.search input[type="text"] {
+    padding: 5px;
+    margin-right: 10px;
+    font-size: 1rem;
+}
+
+.search button {
+    padding: 5px 10px;
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.search button:hover {
+    background-color: var(--highlight-color);
+}
+
+/*--------------------------------------------------------------------------------------*/
+
+
+
+
+
+
+
+/* FORM STYLES --------------------------------------------------------------------------*/
+form.contact {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: var(--main-fg-color);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;  /* Stack elements vertically */
+    align-items: flex-start;
+    max-width: 100%; /* Ensure the form doesn't stretch beyond its container */
+}
+
+form.contact label {
+    font-family: var(--titles-font);
+    color: #F7F8F3;
+}
+
+form.contact input, form select, form textarea {
+    width: 96%; /* Adjust width to fit the container */
+    padding: 10px;
+    margin: 10px 0 20px 0;
+    border: white;
+    border-radius: 10px;
+    font-size: 1em;
+}
+
+form.contact button {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-right: 0.5rem;
+}
+
+form.contact button:hover {
+    background-color: var(--highlight-color);
+}
+
+/*--------------------------------------------------------------------------------------*/
+
+
+
+
+
+
+
+
+/* NAVIGATION -------------------------------------------------------------------------*/
+nav.main-nav {
+    display: flex;
+    justify-content: center;
+    background-color: var(--main-fg-color);
+    margin: 0;
+    padding: 10px 0;
+}
+
+nav.main-nav li {
+    list-style: none;
+    margin: 0 20px;
+}
+
+nav.main-nav li a {
+    color: white;
+    font-size: 1.1em;
+    text-decoration: none;
+}
+
+nav.main-nav li a:hover {
+    text-decoration: underline;
+}
+/*--------------------------------------------------------------------------------------*/
+
+
+
+
+
+
+
+/* MAIN ---------------------------------------------------------------------------------*/
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+main {
+    flex: 1 1 60%;
+    padding: 20px;
+}
+
+/*--------------------------------------------------------------------------------------*/
+
+
+
+
+
+
+
+/* WIDGET (SIDEBAR) -------------------------------------------------------------------*/
+aside.sidebar {
+    flex: 1 1 20%;
+    padding: 10px; /* Adjusted padding to take less space */
+    background-color: var(--main-bg-color);
+    border-left: 1px solid #ddd;
+    max-width: 250px; /* Optional: reduce the width of the sidebar */
+}
+
+/* WIDGET TITLE */
+aside.sidebar h3 {
+    font-size: 1.5em;
+    color: var(--titles-color);
+    margin-bottom: 10px;
+}
+
+/* WIDGET CONTENT */
+aside.sidebar .widget {
+    padding: 10px;
+    background-color: var(--main-bg-color);
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+/* IMAGE STYLING */
+img {
+    max-width: 100%;   /* Ensure images don't overflow */
+    height: auto;      /* Maintain aspect ratio */
+    display: block;
+    margin: 0 auto;    /* Center images */
+}
+
+/*--------------------------------------------------------------------------------------*/
+
+
+
+
+
+
+
+
+/* TABLE STYLING ------------------------------------------------------------------------*/
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/*--------------------------------------------------------------------------------------*/
+
+
+
+
+
+
+
+
+
+
+/* FOOTER ---------------------------------------------------------------------------------*/
+footer {
+    background-color: var(--main-fg-color);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+footer nav {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+footer nav li {
+    list-style: none;
+    margin: 0 15px;
+}
+
+footer nav li a {
+    color: white;
+    font-size: 1em;
+    text-decoration: none;
+}
+
+footer nav li a:hover {
+    text-decoration: underline;
+}
+/*--------------------------------------------------------------------------------------*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* RESPONSIVE DESIGN --------------------------------------------------------------------*/
+@media screen and (max-width: 768px) {
+    .flex-container {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    main, aside.sidebar {
+        flex: 1 1 100%;
+    }
+
+    nav.main-nav {
+        flex-direction: column;
+    }
+
+    nav.main-nav li {
+        margin-bottom: 10px;
+    }
+
+    footer nav {
+        flex-direction: column;
+    }
+
+    footer nav li {
+        margin-bottom: 10px;
+    }
+
+    table {
+        font-size: 0.9rem;
+    }
+}
+
+
+
+
+
+
+@media screen and (max-width: 480px) {
+    header {
+        padding: 10px;
+    }
+
+    .companyinfo .brand {
+        font-size: 1.5em;
+    }
+
+    .companyinfo .tagline {
+        font-size: 1em;
+    }
+
+    .search form {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .search input[type="text"] {
+        margin-bottom: 10px;
+    }
+
+    table {
+        font-size: 0.8rem;
+    }
+}
